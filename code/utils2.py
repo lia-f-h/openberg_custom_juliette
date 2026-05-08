@@ -1,4 +1,4 @@
-import numpy as np
+from ../src/utils import *
 
 def calc_iceberg_size(iceberg_in1):
     '''Correct iceberg size not supplied with empirical relations before seeding iceberg.
@@ -8,7 +8,7 @@ def calc_iceberg_size(iceberg_in1):
         iceberg_in1['width'] = 0.7*lengths*np.exp(-0.00062*length)
     if 'length' in iceberg_in1 and np.logical_or('draft' not in iceberg_in1,'sail' not in iceberg_in1):
         rho_i, rho_w = 900,1027 #kg/m3
-        height = np.array(0.3*lengths*np.exp(-0.00062*lengths))
+        height = np.array(0.4*lengths*np.exp(-0.00062*lengths))
         if np.logical_and('draft' not in iceberg_in1, 'sail' in iceberg_in1): print('Implement')
         elif np.logical_and('draft' not in iceberg_in1, 'sail' not in iceberg_in1): draft = height*(rho_i/rho_w)
         if np.logical_and('sail' not in iceberg_in1, 'draft' not in iceberg_in1): sail = height*(1-rho_i/rho_w) 
