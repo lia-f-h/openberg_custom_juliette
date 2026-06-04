@@ -1,0 +1,955 @@
+13:07:00 DEBUG   opendrift.config:168: Adding 17 config items from __init__
+13:07:00 DEBUG   opendrift.config:178:   Overwriting config item readers:max_number_of_fails
+13:07:00 DEBUG   opendrift.config:168: Adding 14 config items from __init__
+13:07:00 INFO    opendrift:568: OpenDriftSimulation initialised (version 1.14.9)
+13:07:00 DEBUG   opendrift.config:168: Adding 15 config items from openberg
+13:07:00 DEBUG   opendrift.readers.reader_lazy:37: Delaying initialisation of LazyReader: cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:00 DEBUG   opendrift.models.basemodel.environment:313: Added reader LazyReader: cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:00 DEBUG   opendrift.readers.reader_lazy:37: Delaying initialisation of LazyReader: cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:00 DEBUG   opendrift.models.basemodel.environment:313: Added reader LazyReader: cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:00 DEBUG   opendrift.readers.reader_lazy:37: Delaying initialisation of LazyReader: cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:00 DEBUG   opendrift.models.basemodel.environment:313: Added reader LazyReader: cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:00 INFO    opendrift.models.basemodel.environment:203: Adding a global landmask from GSHHG
+13:07:00 DEBUG   opendrift.readers.basereader:188: Variable mapping: ['sea_floor_depth_below_sea_level'] -> ['land_binary_mask'] is not activated
+13:07:04 DEBUG   opendrift.models.basemodel.environment:313: Added reader global_landmask
+13:07:04 INFO    opendrift.models.basemodel.environment:227: Fallback values will be used for the following variables which have no readers: 
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	x_sea_water_velocity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	y_sea_water_velocity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_floor_depth_below_sea_level: 10000.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_height: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_x_slope: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_y_slope: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	x_wind: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	y_wind: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	horizontal_diffusivity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_wave_significant_height: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_wave_from_direction: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_wave_stokes_drift_x_velocity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_surface_wave_stokes_drift_y_velocity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_water_temperature: 2.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_water_salinity: 35.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_ice_area_fraction: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_ice_thickness: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_ice_x_velocity: 0.000000
+13:07:04 INFO    opendrift.models.basemodel.environment:230: 	sea_ice_y_velocity: 0.000000
+13:07:04 DEBUG   opendrift:164: Changed mode from Mode.Config to Mode.Ready
+13:07:04 DEBUG   opendrift:164: Changed mode from Mode.Ready to Mode.Run
+13:07:04 DEBUG   opendrift:1800: 
+------------------------------------------------------
+Software and hardware:
+  OpenDrift version 1.14.9
+  Platform: Linux, 5.17.4-200.fc35.x86_64
+  31.349506378173828 GB memory
+  8 processors (x86_64)
+  NumPy version 2.4.6
+  SciPy version 1.17.1
+  Matplotlib version 3.10.9
+  NetCDF4 version 1.7.4
+  Xarray version 2026.4.0
+  ADIOS (adios_db) version 1.2.7
+  Copernicusmarine version 2.4.1
+  Python version 3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]
+------------------------------------------------------
+
+13:07:04 INFO    opendrift:1839: Storing previous values of element property lon because of condition (('general:coastline_action', 'in', ['stranding', 'previous']), 'or', ('general:seafloor_action', 'in', ['previous']))
+13:07:04 INFO    opendrift:1839: Storing previous values of element property lat because of condition (('general:coastline_action', 'in', ['stranding', 'previous']), 'or', ('general:seafloor_action', 'in', ['previous']))
+13:07:04 DEBUG   opendrift:1962: Finalizing environment and preparing readers for simulation coverage ([-312.90592091   11.6425427   179.19912236   89.        ]) and time (2025-09-24 00:00:00 to 2025-12-11 00:00:00)
+13:07:04 DEBUG   opendrift.models.basemodel.environment:166: 	Preparing LazyReader: cmems_mod_arc_phy_my_topaz4_P1D-m for extent [-312.90592091   11.6425427   179.19912236   89.        ]
+13:07:04 DEBUG   opendrift.models.basemodel.environment:166: 	Preparing LazyReader: cmems_mod_glo_wav_my_0.2deg_PT3H-i for extent [-312.90592091   11.6425427   179.19912236   89.        ]
+13:07:04 DEBUG   opendrift.models.basemodel.environment:166: 	Preparing LazyReader: cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H for extent [-312.90592091   11.6425427   179.19912236   89.        ]
+13:07:04 DEBUG   opendrift.models.basemodel.environment:166: 	Preparing global_landmask for extent [-312.90592091   11.6425427   179.19912236   89.        ]
+13:07:04 DEBUG   opendrift.readers.basereader.variables:555: Nothing more to prepare for global_landmask
+13:07:04 DEBUG   opendrift:2059: Initial self.result, size Frozen({'trajectory': 260, 'time': 100})
+13:07:04 DEBUG   opendrift.export.io_netcdf:24: Initialising output netCDF file {self.outfile_name}
+13:07:04 INFO    opendrift:947: Using existing reader for land_binary_mask to move elements to ocean
+13:07:04 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:04 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:04 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:04 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:04 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:04 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 260 elements
+13:07:04 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 260 elements
+13:07:05 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:05 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:05 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:05 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:05 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:05 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:05 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:05 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 0 (max)
+13:07:05 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:05 INFO    opendrift:978: All points are in ocean
+13:07:05 DEBUG   opendrift:904: to be seeded: 260, already seeded 0
+13:07:05 DEBUG   opendrift:926: Released 10 new elements.
+13:07:05 DEBUG   opendrift:2135: ======================================================================
+13:07:05 INFO    opendrift:2136: 2025-09-24 00:00:00 - step 1 of 1872 - 10 active elements (0 deactivated)
+13:07:05 DEBUG   opendrift:2142: 250 elements scheduled.
+13:07:05 DEBUG   opendrift:2144: ======================================================================
+13:07:05 DEBUG   opendrift:2155: 		74.99825286865234 <- latitude -> 75.019287109375
+13:07:05 DEBUG   opendrift:2155: 		-58.211177825927734 <- longitude -> -58.09977340698242
+13:07:05 DEBUG   opendrift:2153: 		z = 0.0
+13:07:05 DEBUG   opendrift:2156: ---------------------------------
+13:07:05 DEBUG   opendrift.models.basemodel.environment:574: Variables not covered by any reader: ['x_wind', 'sea_floor_depth_below_sea_level', 'sea_water_temperature', 'y_wind', 'sea_ice_thickness', 'sea_surface_wave_from_direction', 'sea_ice_area_fraction', 'y_sea_water_velocity', 'sea_water_salinity', 'sea_surface_wave_significant_height', 'x_sea_water_velocity']
+13:07:05 DEBUG   opendrift.readers.reader_lazy:56: Initialising: LazyReader: cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:06 DEBUG   opendrift.readers:189: Testing reader <module 'opendrift.readers.reader_copernicusmarine' from '/opt/conda/lib/python3.12/site-packages/opendrift/readers/reader_copernicusmarine.py'>
+13:07:06 INFO    opendrift.readers.reader_copernicusmarine:39: Using CMEMS password for user lherrmannsdoerf from environment variables COPERNICUSMARINE_SERVICE_USERNAME and COPERNICUSMARINE_SERVICE_PASSWORD
+13:07:07 DEBUG   opendrift.readers.reader_netCDF_CF_generic:131: Finding coordinate variables.
+13:07:07 INFO    opendrift.readers.reader_netCDF_CF_generic:307: Grid coordinates are detected, but proj4 string not given: assuming latlong
+13:07:07 INFO    opendrift.readers.reader_netCDF_CF_generic:340: Detected dimensions: {'z': 'depth', 'y': 'latitude', 'x': 'longitude', 'time': 'time'}
+13:07:07 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 34 for reader cmems_mod_arc_phy_my_topaz4_P1D-m, assuming a maximum average speed of 5 m/s and time span of 1 day, 0:00:00
+13:07:07 INFO    opendrift.readers.basereader:178: Variable x_sea_water_velocity will be rotated from eastward_sea_water_velocity
+13:07:07 INFO    opendrift.readers.basereader:178: Variable sea_ice_x_velocity will be rotated from eastward_sea_ice_velocity
+13:07:07 INFO    opendrift.readers.basereader:178: Variable y_sea_water_velocity will be rotated from northward_sea_water_velocity
+13:07:07 INFO    opendrift.readers.basereader:178: Variable sea_ice_y_velocity will be rotated from northward_sea_ice_velocity
+13:07:07 DEBUG   opendrift.readers.basereader:188: Variable mapping: ['sea_floor_depth_below_sea_level'] -> ['land_binary_mask'] is not activated
+13:07:07 DEBUG   opendrift.readers.basereader.variables:569: Adding variable mapping: ['sea_ice_x_velocity', 'sea_ice_y_velocity'] -> sea_ice_speed
+13:07:07 DEBUG   opendrift.readers.basereader.variables:569: Adding variable mapping: ['x_sea_water_velocity', 'y_sea_water_velocity'] -> sea_water_speed
+13:07:07 DEBUG   opendrift.readers.basereader.structured:151: Clearing cache for reader cmems_mod_arc_phy_my_topaz4_P1D-m before starting new simulation
+13:07:07 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 9 for reader cmems_mod_arc_phy_my_topaz4_P1D-m, assuming a maximum average speed of 1 m/s and time span of 1 day, 0:00:00
+13:07:07 DEBUG   opendrift.readers.basereader.variables:555: Nothing more to prepare for cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:07 DEBUG   opendrift.readers.reader_lazy:71: Reader initialised: cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:07 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 9 for reader cmems_mod_arc_phy_my_topaz4_P1D-m, assuming a maximum average speed of 1 m/s and time span of 1 day, 0:00:00
+13:07:07 DEBUG   opendrift.readers.reader_lazy:56: Initialising: LazyReader: cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:07 DEBUG   opendrift.readers:189: Testing reader <module 'opendrift.readers.reader_copernicusmarine' from '/opt/conda/lib/python3.12/site-packages/opendrift/readers/reader_copernicusmarine.py'>
+13:07:07 INFO    opendrift.readers.reader_copernicusmarine:39: Using CMEMS password for user lherrmannsdoerf from environment variables COPERNICUSMARINE_SERVICE_USERNAME and COPERNICUSMARINE_SERVICE_PASSWORD
+13:07:08 DEBUG   opendrift.readers.reader_netCDF_CF_generic:131: Finding coordinate variables.
+13:07:09 INFO    opendrift.readers.reader_netCDF_CF_generic:307: Grid coordinates are detected, but proj4 string not given: assuming latlong
+13:07:09 INFO    opendrift.readers.reader_netCDF_CF_generic:340: Detected dimensions: {'y': 'latitude', 'x': 'longitude', 'time': 'time'}
+13:07:09 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 5 for reader cmems_mod_glo_wav_my_0.2deg_PT3H-i, assuming a maximum average speed of 5 m/s and time span of 3:00:00
+13:07:09 DEBUG   opendrift.readers.basereader:188: Variable mapping: ['sea_floor_depth_below_sea_level'] -> ['land_binary_mask'] is not activated
+13:07:09 DEBUG   opendrift.readers.basereader.variables:569: Adding variable mapping: ['sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity'] -> sea_surface_wave_stokes_drift_speed
+13:07:09 DEBUG   opendrift.readers.basereader.structured:151: Clearing cache for reader cmems_mod_glo_wav_my_0.2deg_PT3H-i before starting new simulation
+13:07:09 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 3 for reader cmems_mod_glo_wav_my_0.2deg_PT3H-i, assuming a maximum average speed of 1 m/s and time span of 3:00:00
+13:07:09 DEBUG   opendrift.readers.basereader.variables:555: Nothing more to prepare for cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:09 DEBUG   opendrift.readers.reader_lazy:71: Reader initialised: cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:09 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 3 for reader cmems_mod_glo_wav_my_0.2deg_PT3H-i, assuming a maximum average speed of 1 m/s and time span of 3:00:00
+13:07:09 DEBUG   opendrift.readers.reader_lazy:56: Initialising: LazyReader: cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:09 DEBUG   opendrift.readers:189: Testing reader <module 'opendrift.readers.reader_copernicusmarine' from '/opt/conda/lib/python3.12/site-packages/opendrift/readers/reader_copernicusmarine.py'>
+13:07:09 INFO    opendrift.readers.reader_copernicusmarine:39: Using CMEMS password for user lherrmannsdoerf from environment variables COPERNICUSMARINE_SERVICE_USERNAME and COPERNICUSMARINE_SERVICE_PASSWORD
+13:07:10 DEBUG   opendrift.readers.reader_netCDF_CF_generic:131: Finding coordinate variables.
+13:07:10 INFO    opendrift.readers.reader_netCDF_CF_generic:307: Grid coordinates are detected, but proj4 string not given: assuming latlong
+13:07:10 INFO    opendrift.readers.reader_netCDF_CF_generic:340: Detected dimensions: {'y': 'latitude', 'x': 'longitude', 'time': 'time'}
+13:07:10 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 4 for reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H, assuming a maximum average speed of 5 m/s and time span of 1:00:00
+13:07:10 INFO    opendrift.readers.basereader:178: Variable x_wind will be rotated from eastward_wind
+13:07:10 INFO    opendrift.readers.basereader:178: Variable y_wind will be rotated from northward_wind
+13:07:10 DEBUG   opendrift.readers.basereader:188: Variable mapping: ['sea_floor_depth_below_sea_level'] -> ['land_binary_mask'] is not activated
+13:07:10 DEBUG   opendrift.readers.basereader.variables:569: Adding variable mapping: ['x_wind', 'y_wind'] -> wind_speed
+13:07:10 DEBUG   opendrift.readers.basereader.structured:151: Clearing cache for reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H before starting new simulation
+13:07:10 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 3 for reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H, assuming a maximum average speed of 1 m/s and time span of 1:00:00
+13:07:10 DEBUG   opendrift.readers.basereader.variables:555: Nothing more to prepare for cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:10 DEBUG   opendrift.readers.reader_lazy:71: Reader initialised: cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:10 DEBUG   opendrift.readers.basereader.variables:614: Setting buffer size 3 for reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H, assuming a maximum average speed of 1 m/s and time span of 1:00:00
+13:07:10 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:10 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:10 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:10 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 10 elements
+13:07:10 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:10 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:10 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:10 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:10 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_floor_depth_below_sea_level', 'sea_ice_area_fraction', 'sea_ice_thickness', 'sea_water_salinity', 'sea_water_temperature', 'sea_surface_height', 'x_sea_water_velocity', 'sea_ice_x_velocity', 'y_sea_water_velocity', 'sea_ice_y_velocity']
+13:07:10 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:10 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:10 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:10 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_arc_phy_my_topaz4_P1D-m covering 10 elements
+13:07:10 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:10 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-25 00:00:00 (after)
+13:07:10 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_sea_water_velocity to retrieve x_sea_water_velocity
+13:07:13 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_sea_ice_velocity to retrieve sea_ice_x_velocity
+13:07:13 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_sea_water_velocity to retrieve y_sea_water_velocity
+13:07:13 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_sea_ice_velocity to retrieve sea_ice_y_velocity
+13:07:13 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:13 DEBUG   opendrift.readers.basereader.variables:639: Checking sea_floor_depth_below_sea_level for invalid values
+13:07:13 DEBUG   opendrift.readers.basereader.variables:639: Checking x_sea_water_velocity for invalid values
+13:07:13 DEBUG   opendrift.readers.basereader.variables:639: Checking y_sea_water_velocity for invalid values
+13:07:13 DEBUG   opendrift.readers.interpolation.structured:70: Filled NaN-values toward seafloor for :['sea_water_temperature', 'x_sea_water_velocity', 'sea_water_salinity', 'y_sea_water_velocity']
+13:07:13 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 20x19x12) for time before (2025-09-24 00:00:00)
+13:07:13 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:13 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:13 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:13 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:13 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:13 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:13 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:13 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_surface_wave_significant_height', 'sea_surface_wave_from_direction', 'sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity']
+13:07:13 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:13 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:13 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:13 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:13 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_glo_wav_my_0.2deg_PT3H-i covering 10 elements
+13:07:13 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:13 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-24 03:00:00 (after)
+13:07:14 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x7x1) for time before (2025-09-24 00:00:00)
+13:07:14 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:14 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:14 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:14 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:14 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:14 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:14 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:14 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['x_wind', 'y_wind']
+13:07:14 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:14 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H covering 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:14 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-24 01:00:00 (after)
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_wind to retrieve x_wind
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_wind to retrieve y_wind
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:14 DEBUG   opendrift.readers.basereader.variables:639: Checking x_wind for invalid values
+13:07:14 DEBUG   opendrift.readers.basereader.variables:639: Checking y_wind for invalid values
+13:07:14 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x6x1) for time before (2025-09-24 00:00:00)
+13:07:14 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:14 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:14 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:14 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:14 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for x_sea_water_velocity for 0 profiles
+13:07:14 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for y_sea_water_velocity for 0 profiles
+13:07:14 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 2 for sea_water_temperature for 0 profiles
+13:07:14 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 35 for sea_water_salinity for 0 profiles
+13:07:14 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     x_sea_water_velocity: 0.0454452 (min) 0.0563543 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     y_sea_water_velocity: 0.248665 (min) 0.250277 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_floor_depth_below_sea_level: 93.576 (min) 111.808 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_height: -0.319702 (min) -0.318364 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_x_slope: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_y_slope: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     x_wind: -4.35427 (min) -4.19158 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     y_wind: 5.11922 (min) 5.3027 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     horizontal_diffusivity: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_significant_height: 0.551177 (min) 0.572937 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_from_direction: 137.976 (min) 139.844 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_x_velocity: -0.0599126 (min) -0.0584522 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_y_velocity: 0.05 (min) 0.05 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_temperature: 2.43604 (min) 2.46024 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_salinity: 30.9675 (min) 31.0311 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_area_fraction: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_thickness: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_x_velocity: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_y_velocity: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 0 (max)
+13:07:14 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:14 DEBUG   opendrift:689: No elements hit coastline.
+13:07:14 DEBUG   opendrift:760: No elements hit seafloor.
+13:07:14 DEBUG   opendrift:1732: No elements to deactivate
+13:07:14 DEBUG   opendrift:2193: Calling OpenBerg.update()
+13:07:14 DEBUG   opendrift.models.openberg:650: Rolling over : 1 icebergs ...
+13:07:14 DEBUG   opendrift.models.openberg:507: Advection with surface currents
+13:07:14 DEBUG   opendrift.models.openberg:569: Grounding condition: Icebergs grounded = 8
+13:07:14 DEBUG   opendrift:1680: Horizontal diffusivity is 0, no random walk.
+13:07:14 DEBUG   opendrift:904: to be seeded: 250, already seeded 10
+13:07:14 DEBUG   opendrift:926: Released 0 new elements.
+13:07:14 DEBUG   opendrift:2135: ======================================================================
+13:07:14 INFO    opendrift:2136: 2025-09-24 01:00:00 - step 2 of 1872 - 10 active elements (0 deactivated)
+13:07:14 DEBUG   opendrift:2142: 250 elements scheduled.
+13:07:14 DEBUG   opendrift:2144: ======================================================================
+13:07:14 DEBUG   opendrift:2155: 		74.99825286865234 <- latitude -> 75.02328119914189
+13:07:14 DEBUG   opendrift:2155: 		-58.211177825927734 <- longitude -> -58.09977340698242
+13:07:14 DEBUG   opendrift:2153: 		z = 0.0
+13:07:14 DEBUG   opendrift:2156: ---------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:14 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:14 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:14 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:14 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:14 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_floor_depth_below_sea_level', 'sea_ice_area_fraction', 'sea_ice_thickness', 'sea_water_salinity', 'sea_water_temperature', 'sea_surface_height', 'x_sea_water_velocity', 'sea_ice_x_velocity', 'y_sea_water_velocity', 'sea_ice_y_velocity']
+13:07:14 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:14 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:14 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_arc_phy_my_topaz4_P1D-m covering 10 elements
+13:07:14 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:14 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-25 00:00:00 (after)
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_sea_water_velocity to retrieve x_sea_water_velocity
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_sea_ice_velocity to retrieve sea_ice_x_velocity
+13:07:14 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_sea_water_velocity to retrieve y_sea_water_velocity
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_sea_ice_velocity to retrieve sea_ice_y_velocity
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking sea_floor_depth_below_sea_level for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking x_sea_water_velocity for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking y_sea_water_velocity for invalid values
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:70: Filled NaN-values toward seafloor for :['sea_water_temperature', 'x_sea_water_velocity', 'sea_water_salinity', 'y_sea_water_velocity']
+13:07:15 DEBUG   opendrift.readers.basereader.structured:313: Fetched env-block (size 20x19x12) for time after (2025-09-25 00:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-25 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 10 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 2
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.96) and
+		      after (2025-09-25 00:00:00, weight 0.04) in time
+13:07:15 DEBUG   opendrift.readers.basereader.structured:368: Interpolating profiles in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_surface_wave_significant_height', 'sea_surface_wave_from_direction', 'sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_glo_wav_my_0.2deg_PT3H-i covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-24 03:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:313: Fetched env-block (size 8x7x1) for time after (2025-09-24 03:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-24 03:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.67) and
+		      after (2025-09-24 03:00:00, weight 0.33) in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['x_wind', 'y_wind']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 01:00:00 (before)
+		2025-09-24 02:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_wind to retrieve x_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_wind to retrieve y_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking x_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking y_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x6x1) for time before (2025-09-24 01:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 01:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for x_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for y_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 2 for sea_water_temperature for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 35 for sea_water_salinity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_sea_water_velocity: 0.0440863 (min) 0.0550481 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_sea_water_velocity: 0.245379 (min) 0.24694 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_floor_depth_below_sea_level: 94.2788 (min) 111.807 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_height: -0.319001 (min) -0.31771 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_x_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_y_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_wind: -4.33207 (min) -4.19156 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_wind: 5.53005 (min) 5.71659 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     horizontal_diffusivity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_significant_height: 0.630246 (min) 0.661679 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_from_direction: 142.857 (min) 144.609 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_x_velocity: -0.0566084 (min) -0.0556348 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_y_velocity: 0.0567195 (min) 0.0569929 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_temperature: 2.44148 (min) 2.46437 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_salinity: 30.9849 (min) 31.0428 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_area_fraction: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_thickness: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_x_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_y_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:15 DEBUG   opendrift:689: No elements hit coastline.
+13:07:15 DEBUG   opendrift:760: No elements hit seafloor.
+13:07:15 DEBUG   opendrift:1732: No elements to deactivate
+13:07:15 DEBUG   opendrift:2193: Calling OpenBerg.update()
+13:07:15 DEBUG   opendrift.models.openberg:507: Advection with surface currents
+13:07:15 DEBUG   opendrift.models.openberg:569: Grounding condition: Icebergs grounded = 8
+13:07:15 DEBUG   opendrift:1680: Horizontal diffusivity is 0, no random walk.
+13:07:15 DEBUG   opendrift:904: to be seeded: 250, already seeded 10
+13:07:15 DEBUG   opendrift:926: Released 0 new elements.
+13:07:15 DEBUG   opendrift:2135: ======================================================================
+13:07:15 INFO    opendrift:2136: 2025-09-24 02:00:00 - step 3 of 1872 - 10 active elements (0 deactivated)
+13:07:15 DEBUG   opendrift:2142: 250 elements scheduled.
+13:07:15 DEBUG   opendrift:2144: ======================================================================
+13:07:15 DEBUG   opendrift:2155: 		74.99825286865234 <- latitude -> 75.03398343877275
+13:07:15 DEBUG   opendrift:2155: 		-58.211177825927734 <- longitude -> -58.092850836467164
+13:07:15 DEBUG   opendrift:2153: 		z = 0.0
+13:07:15 DEBUG   opendrift:2156: ---------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_floor_depth_below_sea_level', 'sea_ice_area_fraction', 'sea_ice_thickness', 'sea_water_salinity', 'sea_water_temperature', 'sea_surface_height', 'x_sea_water_velocity', 'sea_ice_x_velocity', 'y_sea_water_velocity', 'sea_ice_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_arc_phy_my_topaz4_P1D-m covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-25 00:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-25 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.92) and
+		      after (2025-09-25 00:00:00, weight 0.08) in time
+13:07:15 DEBUG   opendrift.readers.basereader.structured:368: Interpolating profiles in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_surface_wave_significant_height', 'sea_surface_wave_from_direction', 'sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_glo_wav_my_0.2deg_PT3H-i covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-24 03:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-24 03:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.33) and
+		      after (2025-09-24 03:00:00, weight 0.67) in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['x_wind', 'y_wind']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 02:00:00 (before)
+		2025-09-24 03:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_wind to retrieve x_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_wind to retrieve y_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking x_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking y_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x6x1) for time before (2025-09-24 02:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 02:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for x_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for y_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 2 for sea_water_temperature for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 35 for sea_water_salinity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_sea_water_velocity: 0.0427274 (min) 0.0537424 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_sea_water_velocity: 0.242094 (min) 0.243603 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_floor_depth_below_sea_level: 94.2788 (min) 111.807 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_height: -0.318299 (min) -0.316998 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_x_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_y_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_wind: -5.05139 (min) -4.96424 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_wind: 6.30832 (min) 6.49567 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     horizontal_diffusivity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_significant_height: 0.709316 (min) 0.750421 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_from_direction: 147.738 (min) 149.374 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_x_velocity: -0.0533042 (min) -0.0526546 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_y_velocity: 0.0634391 (min) 0.0640121 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_temperature: 2.44439 (min) 2.4685 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_salinity: 30.9969 (min) 31.0545 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_area_fraction: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_thickness: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_x_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_y_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:15 DEBUG   opendrift:689: No elements hit coastline.
+13:07:15 DEBUG   opendrift:760: No elements hit seafloor.
+13:07:15 DEBUG   opendrift:1732: No elements to deactivate
+13:07:15 DEBUG   opendrift:2193: Calling OpenBerg.update()
+13:07:15 DEBUG   opendrift.models.openberg:507: Advection with surface currents
+13:07:15 DEBUG   opendrift.models.openberg:569: Grounding condition: Icebergs grounded = 8
+13:07:15 DEBUG   opendrift:1680: Horizontal diffusivity is 0, no random walk.
+13:07:15 DEBUG   opendrift:904: to be seeded: 250, already seeded 10
+13:07:15 DEBUG   opendrift:926: Released 0 new elements.
+13:07:15 DEBUG   opendrift:2135: ======================================================================
+13:07:15 INFO    opendrift:2136: 2025-09-24 03:00:00 - step 4 of 1872 - 10 active elements (0 deactivated)
+13:07:15 DEBUG   opendrift:2142: 250 elements scheduled.
+13:07:15 DEBUG   opendrift:2144: ======================================================================
+13:07:15 DEBUG   opendrift:2155: 		74.99825286865234 <- latitude -> 75.04527047017733
+13:07:15 DEBUG   opendrift:2155: 		-58.211177825927734 <- longitude -> -58.082924644261766
+13:07:15 DEBUG   opendrift:2153: 		z = 0.0
+13:07:15 DEBUG   opendrift:2156: ---------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_floor_depth_below_sea_level', 'sea_ice_area_fraction', 'sea_ice_thickness', 'sea_water_salinity', 'sea_water_temperature', 'sea_surface_height', 'x_sea_water_velocity', 'sea_ice_x_velocity', 'y_sea_water_velocity', 'sea_ice_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_arc_phy_my_topaz4_P1D-m covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-25 00:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-25 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.88) and
+		      after (2025-09-25 00:00:00, weight 0.12) in time
+13:07:15 DEBUG   opendrift.readers.basereader.structured:368: Interpolating profiles in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_surface_wave_significant_height', 'sea_surface_wave_from_direction', 'sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_glo_wav_my_0.2deg_PT3H-i covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 03:00:00 (before)
+		2025-09-24 06:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 03:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['x_wind', 'y_wind']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 03:00:00 (before)
+		2025-09-24 04:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_wind to retrieve x_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_wind to retrieve y_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking x_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking y_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x6x1) for time before (2025-09-24 03:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 03:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for x_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for y_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 2 for sea_water_temperature for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 35 for sea_water_salinity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_sea_water_velocity: 0.0413685 (min) 0.0524366 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_sea_water_velocity: 0.238808 (min) 0.240266 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_floor_depth_below_sea_level: 94.2788 (min) 111.807 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_height: -0.317597 (min) -0.316169 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_x_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_y_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_wind: -5.60736 (min) -5.43299 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_wind: 7.26187 (min) 7.6253 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     horizontal_diffusivity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_significant_height: 0.788386 (min) 0.839164 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_from_direction: 152.619 (min) 154.14 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_x_velocity: -0.05 (min) -0.05 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_y_velocity: 0.0701586 (min) 0.0712458 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_temperature: 2.44731 (min) 2.47263 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_salinity: 31.0076 (min) 31.0663 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_area_fraction: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_thickness: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_x_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_y_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:15 DEBUG   opendrift:689: No elements hit coastline.
+13:07:15 DEBUG   opendrift:760: No elements hit seafloor.
+13:07:15 DEBUG   opendrift:1732: No elements to deactivate
+13:07:15 DEBUG   opendrift:2193: Calling OpenBerg.update()
+13:07:15 DEBUG   opendrift.models.openberg:507: Advection with surface currents
+13:07:15 DEBUG   opendrift.models.openberg:569: Grounding condition: Icebergs grounded = 8
+13:07:15 DEBUG   opendrift:1680: Horizontal diffusivity is 0, no random walk.
+13:07:15 DEBUG   opendrift:904: to be seeded: 250, already seeded 10
+13:07:15 DEBUG   opendrift:926: Released 0 new elements.
+13:07:15 DEBUG   opendrift:2135: ======================================================================
+13:07:15 INFO    opendrift:2136: 2025-09-24 04:00:00 - step 5 of 1872 - 10 active elements (0 deactivated)
+13:07:15 DEBUG   opendrift:2142: 250 elements scheduled.
+13:07:15 DEBUG   opendrift:2144: ======================================================================
+13:07:15 DEBUG   opendrift:2155: 		74.99825286865234 <- latitude -> 75.05713466258287
+13:07:15 DEBUG   opendrift:2155: 		-58.211177825927734 <- longitude -> -58.07433576030124
+13:07:15 DEBUG   opendrift:2153: 		z = 0.0
+13:07:15 DEBUG   opendrift:2156: ---------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['land_binary_mask']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader global_landmask
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from global_landmask covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.continuous:37: Fetched env-before
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking land_binary_mask for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_floor_depth_below_sea_level', 'sea_ice_area_fraction', 'sea_ice_thickness', 'sea_water_salinity', 'sea_water_temperature', 'sea_surface_height', 'x_sea_water_velocity', 'sea_ice_x_velocity', 'y_sea_water_velocity', 'sea_ice_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_arc_phy_my_topaz4_P1D-m
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_arc_phy_my_topaz4_P1D-m covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 00:00:00 (before)
+		2025-09-25 00:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-25 00:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 00:00:00, weight 0.83) and
+		      after (2025-09-25 00:00:00, weight 0.17) in time
+13:07:15 DEBUG   opendrift.readers.basereader.structured:368: Interpolating profiles in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['sea_surface_wave_significant_height', 'sea_surface_wave_from_direction', 'sea_surface_wave_stokes_drift_x_velocity', 'sea_surface_wave_stokes_drift_y_velocity']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_mod_glo_wav_my_0.2deg_PT3H-i
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_mod_glo_wav_my_0.2deg_PT3H-i covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 03:00:00 (before)
+		2025-09-24 06:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:313: Fetched env-block (size 8x7x1) for time after (2025-09-24 06:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 03:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:340: Interpolating after (2025-09-24 06:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.interpolation.interpolators:131: Linear2DInterpolator informational: NaN values for 9 elements, expanding data 1
+13:07:15 DEBUG   opendrift.readers.basereader.structured:355: Interpolating before (2025-09-24 03:00:00, weight 0.67) and
+		      after (2025-09-24 06:00:00, weight 0.33) in time
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:599: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:600: Variable group ['x_wind', 'y_wind']
+13:07:15 DEBUG   opendrift.models.basemodel.environment:601: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:605: Calling reader cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H
+13:07:15 DEBUG   opendrift.models.basemodel.environment:606: ----------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:626: Data needed for 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.variables:761: Fetching variables from cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H covering 10 elements
+13:07:15 DEBUG   opendrift.readers.basereader.structured:208: Shifting coordinates to -180-180
+13:07:15 DEBUG   opendrift.readers.basereader.structured:220: Reader time:
+		2025-09-24 04:00:00 (before)
+		2025-09-24 05:00:00 (after)
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using eastward_wind to retrieve x_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:470: Using northward_wind to retrieve y_wind
+13:07:15 DEBUG   opendrift.readers.reader_netCDF_CF_generic:592: North is up, no rotation necessary
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking x_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.variables:639: Checking y_wind for invalid values
+13:07:15 DEBUG   opendrift.readers.basereader.structured:290: Fetched env-block (size 8x6x1) for time before (2025-09-24 04:00:00)
+13:07:15 DEBUG   opendrift.readers.basereader.structured:334: Interpolating before (2025-09-24 04:00:00) in space  (linearNDFast)
+13:07:15 DEBUG   opendrift.readers.interpolation.structured:97: Initialising interpolator.
+13:07:15 DEBUG   opendrift.readers.basereader.structured:388: No time interpolation needed - right on time.
+13:07:15 DEBUG   opendrift.readers.basereader.variables:797: Reader projection is latlon - rotation of vectors is not needed.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:762: Obtained data for all elements.
+13:07:15 DEBUG   opendrift.models.basemodel.environment:775: ---------------------------------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:776: Finished processing all variable groups
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for x_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 0 for y_sea_water_velocity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 2 for sea_water_temperature for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:812:       Using fallback value 35 for sea_water_salinity for 0 profiles
+13:07:15 DEBUG   opendrift.models.basemodel.environment:898: ------------ SUMMARY -------------
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_sea_water_velocity: 0.0400096 (min) 0.0511309 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_sea_water_velocity: 0.235522 (min) 0.236929 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_floor_depth_below_sea_level: 94.2788 (min) 111.807 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_height: -0.316895 (min) -0.315465 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_x_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_y_slope: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     x_wind: -5.92567 (min) -5.81189 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     y_wind: 7.79964 (min) 8.2858 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     horizontal_diffusivity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_significant_height: 1.06447 (min) 1.12564 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_from_direction: 158.147 (min) 159.407 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_x_velocity: -0.0566667 (min) -0.0566375 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_surface_wave_stokes_drift_y_velocity: 0.0918953 (min) 0.094312 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_temperature: 2.45022 (min) 2.47676 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_water_salinity: 31.0184 (min) 31.078 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_area_fraction: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_thickness: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_x_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     sea_ice_y_velocity: 0 (min) 0 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:900:     land_binary_mask: 0 (min) 1 (max)
+13:07:15 DEBUG   opendrift.models.basemodel.environment:902: ---------------------------------
+13:07:15 DEBUG   opendrift:692: 1 elements hit land, moving them to the coastline.
+13:07:15 DEBUG   opendrift:1705: Added status stranded
+13:07:15 DEBUG   opendrift:1716: 1 elements scheduled for deactivation (stranded)
+13:07:15 DEBUG   opendrift:1718: 	(z: 0.000000 to 0.000000)
