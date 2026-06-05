@@ -15,7 +15,7 @@ wind_in = ['windglophynrt',] #choose wind input
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
-oc_in = [['topaz5','arcmfcwam'],['glophyanfc','arcmfcwam'],['topaz6-lowres','topaz5','arcmfcwam'],['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
+oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
 
 # --- Clean up ---
 for _ in range(2):
@@ -95,7 +95,8 @@ for envinput in input_l: #Loops through the ocean and wind input
     #---Model configuration---
     o.set_config('drift:max_age_seconds', ib_duration*3600*24) #Terminates simulations  ib_duration seconds after their individual initialisation
     o.set_config('drift:vertical_profile',False)
-    o.set_config('drift:stokes_drift',False)
+    o.set_config('drift:stokes_drift',True)
+    o.set_config('drift:wave_rad',True)
     #---Readers
     for envin in envinput:
         dataset_id = env[envin]
