@@ -11,11 +11,13 @@ from opendrift.readers.reader_netCDF_CF_generic import Reader
 import gc
 
 # --- Input data ---
-wind_in = ['windglophynrt',] #choose wind input
+wind_in = ['era5'] #choose wind input: #'windglophynrt','windglophyre',
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
-oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
+# oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
+oc_in = []
+# oc_in = ['arcmfcwam','mfwam','waverys']
 
 # --- Clean up ---
 for _ in range(2):
@@ -51,15 +53,17 @@ env = {
     # --- Wind ---
     'windglophyre':'cmems_obs-wind_glo_phy_my_l4_0.125deg_PT1H', #availability; 2007-2026
     'windglophynrt':'cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H', #availability: 2024-2026
-    'era5':'../input/era5_juliette.nc'} #Has to be downloaded
+    'era5':'./input/era5_juliette.nc'} #Has to be downloaded
 
 #Define index of initial simulation time steps
 idx = np.arange(ds_3day.time.size) #here, 3-dayly throughout observed trajectory, ADAPT!
 print(idx)
 
 #---Combintaions of inputs
-input_l = [(oc if isinstance(oc, list) else [oc]) + [wi]
-    for wi in wind_in for oc in oc_in ]
+if np.logical_and(wind_in!=[],oc_in!=[]): input_l = [(oc if isinstance(oc, list) else [oc]) + [wi] for wi in wind_in for oc in oc_in ] 
+elif np.logical_and(wind_in==[],oc_in!=[]): input_l = [(oc if isinstance(oc, list) else [oc]) for oc in oc_in]
+elif np.logical_and(wind_in!=[],oc_in==[]): input_l = [(wi if isinstance(wi, list) else [wi]) for wi in wind_in]
+else: print('Provide input data!')
 # --- Show configurations ---
 print("\nAvailable forcing configurations:")
 for i, envinput in enumerate(input_l):
@@ -95,8 +99,10 @@ for envinput in input_l: #Loops through the ocean and wind input
     #---Model configuration---
     o.set_config('drift:max_age_seconds', ib_duration*3600*24) #Terminates simulations  ib_duration seconds after their individual initialisation
     o.set_config('drift:vertical_profile',False)
-    o.set_config('drift:stokes_drift',True)
-    o.set_config('drift:wave_rad',True)
+    o.set_config('drift:stokes_drift',False)
+    o.set_config('drift:wave_rad',False)
+    o.set_config('drift:wind_drag',True)
+    o.set_config('drift:sea_ice_drag',False)
     #---Readers
     for envin in envinput:
         dataset_id = env[envin]
