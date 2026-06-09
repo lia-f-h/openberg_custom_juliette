@@ -11,13 +11,13 @@ from opendrift.readers.reader_netCDF_CF_generic import Reader
 import gc
 
 # --- Input data ---
-wind_in = ['era5'] #choose wind input: #'windglophynrt','windglophyre',
+wind_in = [] #choose wind input: #'windglophynrt','windglophyre',
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
 # oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
-oc_in = []
-# oc_in = ['arcmfcwam','mfwam','waverys']
+# oc_in = []
+oc_in = ['arcmfcwam',]#'mfwam','waverys']
 
 # --- Clean up ---
 for _ in range(2):
@@ -90,6 +90,7 @@ iceberg = {'length':50+randspace*2000, #meassured and random sizes
 iceberg = calc_iceberg_size(iceberg) #this function adds missing iceberg sizes
 iceberg['length'][0] = 200 #correct for meassured width
 iceberg['width'][0] = 85 #correct for meassured width
+print(iceberg)
 
 # --- Runs simulations
 for envinput in input_l: #Loops through the ocean and wind input
@@ -101,7 +102,7 @@ for envinput in input_l: #Loops through the ocean and wind input
     o.set_config('drift:vertical_profile',False)
     o.set_config('drift:stokes_drift',False)
     o.set_config('drift:wave_rad',False)
-    o.set_config('drift:wind_drag',True)
+    o.set_config('drift:wind_drag',False)
     o.set_config('drift:sea_ice_drag',False)
     #---Readers
     for envin in envinput:
