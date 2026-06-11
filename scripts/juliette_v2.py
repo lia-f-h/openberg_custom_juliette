@@ -11,13 +11,13 @@ from opendrift.readers.reader_netCDF_CF_generic import Reader
 import gc
 
 # --- Input data ---
-wind_in = [] #choose wind input: #'windglophynrt','windglophyre',
+wind_in = ['era5',] #choose wind input: #'windglophynrt','windglophyre',
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
 # oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
-# oc_in = []
-oc_in = ['arcmfcwam',]#'mfwam','waverys']
+oc_in = []
+# oc_in = ['arcmfcwam',]#'mfwam','waverys']
 
 # --- Clean up ---
 for _ in range(2):
@@ -53,7 +53,8 @@ env = {
     # --- Wind ---
     'windglophyre':'cmems_obs-wind_glo_phy_my_l4_0.125deg_PT1H', #availability; 2007-2026
     'windglophynrt':'cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H', #availability: 2024-2026
-    'era5':'./input/era5_juliette.nc'} #Has to be downloaded
+    'era5':'./input/era5_juliette.nc',
+    'carra2': 'input/carra2_juliette.grib'} #Has to be downloaded
 
 #Define index of initial simulation time steps
 idx = np.arange(ds_3day.time.size) #here, 3-dayly throughout observed trajectory, ADAPT!
@@ -110,20 +111,28 @@ for envinput in input_l: #Loops through the ocean and wind input
         print(f"Loading dataset: {dataset_id}")
         try:
             if isinstance(dataset_id, str) and dataset_id.endswith('.nc'): #local files, e.g. era5
+                mapping_dict = {}
                 ds_env = xr.open_mfdataset(dataset_id)
-                reader_env = Reader(
-                    ds_env,
-                    standard_name_mapping={
-                        'u10': 'x_wind',
-                        'v10': 'y_wind'})
-                o.add_reader(reader_env)
+                if 'era5' in dataset_id:
+                    ds_env = ds_env.chunk({"valid_time": 1})
+                    mapping_dict['standard_name_mapping']={'u10': 'x_wind','v10': 'y_wind'}
+                if 'ensemble' not in dataset_id: ds_env = ds_env.drop_vars(['number','expver']) #if not ensemble
+                if 'carra' in dataset_id: 
+                    ds_env['longitude'] = ds_env['longitude'] - 360
+                    mapping_dict['standard_name_mapping']={'u10': 'x_wind','v10': 'y_wind'}
+                reader_env = Reader(ds_env,**mapping_dict)
+                o.add_reader(reader_env,lazy=True)
             elif isinstance(dataset_id, list) and 'ensemble' in envin: #list of urls or files, eg. for topaz4 ensemble
+                # ds_env = xr.open_mfdataset(dataset_id,
+                #          combine="nested",
+                #          concat_dim="realization",#should be named "realization" or "ensemble_member"
+                #          parallel=True,engine="netcdf4", chunks={'time': 10})
+                # ds_env = ds_env.assign_coords(realization=xr.DataArray(ds_env.realization,dims=("realization",),
+                #     attrs={"standard_name": "realization","long_name": "ensemble member","axis": "E"}))
                 ds_env = xr.open_mfdataset(dataset_id,
-                         combine="nested",
-                         concat_dim="realization",#should be named "realization" or "ensemble_member"
-                         parallel=True,engine="netcdf4", chunks={'time': 10})
-                ds_env = ds_env.assign_coords(realization=xr.DataArray(ds_env.realization,dims=("realization",),
-                    attrs={"standard_name": "realization","long_name": "ensemble member","axis": "E"}))
+                            concat_dim=xr.DataArray(members, dims='member', name='member',
+                            attrs={'standard_name': 'realization'}),
+                            combine='nested', data_vars='all', coords='all', chunks={'time': 1}) #Solution from KF!
                 reader_env = Reader(ds_env)
                 o.add_reader(reader_env)
             else: o.add_readers_from_list([dataset_id]) 
