@@ -1,6 +1,6 @@
 from src.utils import *
-
-def calc_iceberg_size(iceberg):
+    
+def calc_iceberg_size(iceberg_in):
     """
     Estimate missing iceberg properties (width, draft, sail)
     using empirical relationships based on length.
@@ -15,15 +15,16 @@ def calc_iceberg_size(iceberg):
     dict
         Updated iceberg dictionary with estimated values filled in.
     """
+    iceberg_out = iceberg_in.copy()
 
-    if 'length' not in iceberg:
+    if 'length' not in iceberg_out:
         raise ValueError("Input must contain 'length'.")
 
-    lengths = np.array(iceberg['length'])
+    lengths = np.array(iceberg_out['length'])
 
     # --- Estimate width ---
-    if 'width' not in iceberg:
-        iceberg['width'] = 0.7 * lengths * np.exp(-0.00062 * lengths)
+    if 'width' not in iceberg_out:
+        iceberg_out['width'] = 0.7 * lengths * np.exp(-0.00062 * lengths)
 
     # --- Estimate height ---
     height = 0.4 * lengths * np.exp(-0.00062 * lengths)
@@ -37,25 +38,25 @@ def calc_iceberg_size(iceberg):
     frac_sail = 1 - frac_draft
 
     # --- Handle draft and sail ---
-    has_draft = 'draft' in iceberg
-    has_sail = 'sail' in iceberg
+    has_draft = 'draft' in iceberg_out
+    has_sail = 'sail' in iceberg_out
 
     if not has_draft and not has_sail:
         # Compute both directly
-        iceberg['draft'] = height * frac_draft
-        iceberg['sail'] = height * frac_sail
+        iceberg_out['draft'] = height * frac_draft
+        iceberg_out['sail'] = height * frac_sail
 
     elif has_draft and not has_sail:
         # Compute sail from draft
-        iceberg['sail'] = iceberg['draft'] * (frac_sail / frac_draft)
+        iceberg_out['sail'] = iceberg_out['draft'] * (frac_sail / frac_draft)
 
     elif has_sail and not has_draft:
         # Compute draft from sail
-        iceberg['draft'] = iceberg['sail'] * (frac_draft / frac_sail)
+        iceberg_out['draft'] = iceberg_out['sail'] * (frac_draft / frac_sail)
 
     # If both exist, leave as is
 
-    return iceberg
+    return iceberg_out
     
 # def calc_iceberg_size(iceberg_in1):
 #     '''Correct iceberg size not supplied with empirical relations before seeding iceberg.

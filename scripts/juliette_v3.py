@@ -11,12 +11,12 @@ from opendrift.readers.reader_netCDF_CF_generic import Reader
 import gc
 
 # --- Input data ---
-wind_in = ['era5',] #choose wind input: #'windglophynrt','windglophyre',
+wind_in = ['windglophynrt',] #choose wind input: #'windglophynrt','windglophyre',
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
 # oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
-oc_in = []
+oc_in = ['topaz4-ensemble']
 # oc_in = ['arcmfcwam',]#'mfwam','waverys']
 
 # --- Clean up ---
@@ -26,6 +26,10 @@ for _ in range(2):
 # Read and subset tracker data
 ds_3day = read_tracker('./input/Osker-X2.csv')['3D']
 print(ds_3day.time)
+
+#Define index of initial simulation time steps
+idx = np.arange(ds_3day.time.size) #here, 3-dayly throughout observed trajectory, ADAPT!
+print(idx)
 
 # Dictionary of available environmental input datasets
 env = {
@@ -56,10 +60,6 @@ env = {
     'era5':'./input/era5_juliette.nc',
     'carra2': 'input/carra2_juliette.grib'} #Has to be downloaded
 
-#Define index of initial simulation time steps
-idx = np.arange(ds_3day.time.size) #here, 3-dayly throughout observed trajectory, ADAPT!
-print(idx)
-
 #---Combintaions of inputs
 if np.logical_and(wind_in!=[],oc_in!=[]): input_l = [(oc if isinstance(oc, list) else [oc]) + [wi] for wi in wind_in for oc in oc_in ] 
 elif np.logical_and(wind_in==[],oc_in!=[]): input_l = [(oc if isinstance(oc, list) else [oc]) for oc in oc_in]
@@ -73,25 +73,40 @@ for i, envinput in enumerate(input_l):
 # --- Simulation definitions ---
 ib_duration = 3 #in days, How long every iceberg is simulated after its individual initialisation (iceberg age)
 n=10 #number of icebergs released on every initialisation
-randspace=np.random.rand(n)
+
+# --- Randomisation
+# rng = np.random.default_rng(42)  # "seed" random drawing so it is the same for every simulation
+# randspace = rng.random(n)
+randspace = np.linspace(0,1,n) #uniformly distributed instead of random
 
 # --- Initial iceberg conditions ---
 #---Trajectory information---
 lons = ds_3day.lon[idx]
 lats = ds_3day.lat[idx]
 times = pd.to_datetime(ds_3day.time[idx].values).to_pydatetime().tolist()#[t.values.astype(datetime) for t in ds_3day.time[idx]]
+
 #---Iceberg size---
 #iceberg = {'length':150+randspace*100,'width':80+randspace*10, 
  #       'water_form_drag_coef':0.25+randspace*1.25,'wind_form_drag_coef':0.5+randspace*1} #Randomised sizes and coefficients
-iceberg = {'length':50+randspace*2000, #meassured and random sizes
-       'water_form_drag_coef':0.25+randspace*1.25,'wind_form_drag_coef':0.5+randspace*1} #Randomised sizes and coefficients
 #iceberg = {'length':[50,2000,500,1000,2000], 
 #       'water_form_drag_coef':0.25+randspace*1.25,'wind_form_drag_coef':0.5+randspace*1} #hardcoded input size
+# iceberg = {'length':50+randspace*2000, #meassured and random sizes
+#        'water_form_drag_coef':0.25+randspace*1.25,'wind_form_drag_coef':0.5+randspace*1, #Randomised sizes and coefficients
+#            'radius':500}
+#randdim= np.random.rand(n) * 0.1 + 0.955 #for 10% variation
+randlength = np.sort(randspace*2000+50) #random in defined range, here 50 to 2000m
+randcoefwa = randspace*1.25+0.25
+randcoefwi = randspace*1+0.5
+iceberg = {'length': randlength, 
+           'water_form_drag_coef': randcoefwa, 'wind_form_drag_coef': randcoefwi,
+           'radius':1000}
 #---Size correction---
 iceberg = calc_iceberg_size(iceberg) #this function adds missing iceberg sizes
-iceberg['length'][0] = 200 #correct for meassured width
-iceberg['width'][0] = 85 #correct for meassured width
-print(iceberg)
+idx0 = 0 #np.arange(0,n*idx.size,n)+1 #identity of  "member" that should contain observed size for every time-position-intitialisation, here the second
+iceberg['length'][idx0] = 200 #correct for meassured width
+iceberg['width'][idx0] = 85 #correct for meassured width
+# print(iceberg)
+
 
 # --- Runs simulations
 for envinput in input_l: #Loops through the ocean and wind input
@@ -103,8 +118,8 @@ for envinput in input_l: #Loops through the ocean and wind input
     o.set_config('drift:vertical_profile',False)
     o.set_config('drift:stokes_drift',False)
     o.set_config('drift:wave_rad',False)
-    o.set_config('drift:wind_drag',False)
-    o.set_config('drift:sea_ice_drag',False)
+    o.set_config('drift:wind_drag',True)
+    o.set_config('drift:sea_ice_drag',True)
     #---Readers
     for envin in envinput:
         dataset_id = env[envin]
@@ -121,7 +136,7 @@ for envinput in input_l: #Loops through the ocean and wind input
                     ds_env['longitude'] = ds_env['longitude'] - 360
                     mapping_dict['standard_name_mapping']={'u10': 'x_wind','v10': 'y_wind'}
                 reader_env = Reader(ds_env,**mapping_dict)
-                o.add_reader(reader_env,lazy=True)
+                o.add_reader(reader_env)
             elif isinstance(dataset_id, list) and 'ensemble' in envin: #list of urls or files, eg. for topaz4 ensemble
                 # ds_env = xr.open_mfdataset(dataset_id,
                 #          combine="nested",
