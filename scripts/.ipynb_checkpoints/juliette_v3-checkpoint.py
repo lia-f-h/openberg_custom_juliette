@@ -2,7 +2,7 @@
 # Copy of juliette_v2.ipynb as .py (4 June 2026)
 
 #cd ~/work/tutorials/sources/OpenDrift/openberg_custom_juliette
-#run this file from the working directory in terminal using: python3 -m scripts.juliette_v2 
+#run this file from the working directory in terminal using: python3 -m scripts.juliette_v3
 
 from src.utils import *
 from src.utils2 import *
@@ -11,12 +11,13 @@ from opendrift.readers.reader_netCDF_CF_generic import Reader
 import gc
 
 # --- Input data ---
-wind_in = ['windglophynrt',] #choose wind input: #'windglophynrt','windglophyre',
+wind_in = [] #choose wind input: #'windglophynrt','windglophyre',
 #oc_in = ['topaz4','topaz5','glophyanfc','glorys'] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 #oc_in = [[si,oc] for oc in ['topaz4','topaz5','glophyanfc','glorys'] for si in ['nextsimanfc',]] #choose ocean sea ice and wave input, if nested list of mulitple ocean/sea ice data order by priority!
 # oc_in = [['topaz6-lowres','topaz5'],['nextsimanfc','topaz5'],['nextsimanfc','topaz6-lowres','topaz5']]
 # oc_in = [['topaz5','mfwam'],['topaz5','waverys'],]#['glophyanfc','arcmfcwamre'],]#['topaz4','arcmfcwam'],['glorys','arcmfcwam']]
-oc_in = ['topaz4-ensemble']
+# oc_in = ['glophyanfc','topaz5',['topaz6-lowres','topaz5'],'topaz6-lowres']
+oc_in = ['nextsimanfc',]
 # oc_in = ['arcmfcwam',]#'mfwam','waverys']
 
 # --- Clean up ---
@@ -118,7 +119,7 @@ for envinput in input_l: #Loops through the ocean and wind input
     o.set_config('drift:vertical_profile',False)
     o.set_config('drift:stokes_drift',False)
     o.set_config('drift:wave_rad',False)
-    o.set_config('drift:wind_drag',True)
+    o.set_config('drift:wind_drag',False)
     o.set_config('drift:sea_ice_drag',True)
     #---Readers
     for envin in envinput:
@@ -160,7 +161,6 @@ for envinput in input_l: #Loops through the ocean and wind input
             lat=lat,
             time=time,
             number=n,
-            radius=1000,
             **iceberg)
     #---Run---
     oi = o.run(duration=timedelta(days=int(idx.size*ib_duration)), #duration from first initialisation to last termination not equal to ib age!
@@ -171,7 +171,7 @@ for envinput in input_l: #Loops through the ocean and wind input
     for _ in range(2):
         gc.collect()
 print(oi)
-
+print('\a')
 #Some checks
 # print('Occuring stati',np.unique(oi.status))
 #print('proportion of trajectories that became stranded (at any time)',np.mean(np.any(oi.status==1,axis=1)).values)
