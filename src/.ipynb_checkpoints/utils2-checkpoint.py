@@ -135,3 +135,25 @@ def read_tracker(csv_in):
     ds_3day = ds.resample(time="3D",origin="start_day").nearest()
 
     return {'full':ds,'D':ds_daily,'3D':ds_3day}
+
+def read_cmems_custom_variables(dataset_id_in, variable_list_in):
+    import copernicusmarine as cm
+    
+    ds = cm.open_dataset(
+        dataset_id=dataset_id_in,
+        variables=variable_list_in,
+        minimum_longitude=-80,
+        maximum_longitude=-50,
+        minimum_latitude=70,
+        maximum_latitude=80,
+        start_datetime="2025-09-01T00:00:00",
+        end_datetime="2025-12-31T00:00:00"
+    )
+    
+    ds = ds.rename({"longitude": "lon", "latitude": "lat"})
+
+    for v in ds.variables:
+        ds[v].attrs.pop("coordinates", None)
+        ds[v].attrs.pop("grid_mapping", None)
+
+    return ds

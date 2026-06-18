@@ -4,14 +4,16 @@
 #cd ~/work/tutorials/sources/OpenDrift/openberg_custom_juliette
 #run this file from the working directory in terminal using: 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '[["nextsimanfc","glophyanfc"],["nextsimanfc","topaz5"], ["nextsimanfc","topaz6-lowres", "topaz5"]]' \
-#   --argwind '["windglophynrt"]' \
-#   --argdrift '{"wind_drag": true, "sea_ice_drag": true}'
+#   --argoc '["topay6-lowres"]' \
+#   --argwind '[]' \
+#   --argdrift '{"wind_drag": false, "sea_ice_drag": false}'
 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '["arcmfcwam","mfwam","waverys"]' \
-#   --argwind '[]' \
-#   --argdrift '{"wind_drag": false, "sea_ice_drag": false, "wave_rad":true, "stokes_drift":true}'
+#   --argoc '[["glophyanfc","arcmfcwam"],["glophyanfc","mfwam"],["glophyanfc","waverys"],["topaz5","arcmfcwam"],["topaz5","mfwam"],["topaz5","waverys"]]' \
+#   --argwind '["windglophynrt"]' \
+#   --argdrift '{"wind_drag": true, "sea_ice_drag": true, "wave_rad":true, "stokes_drift":true}'
+
+
 
 
 
