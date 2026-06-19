@@ -52,6 +52,7 @@ env = {
     'nextsimre':'cmems_mod_arc_phy_my_nextsim_P1D-m',
     # --- Wave ---
     'arcmfcwam':'dataset-wam-arctic-1hr3km-be',
+    'arcmfcwam_vars':{'id':"dataset-wam-arctic-1hr3km-be",'variables':["VHM0","VMDR","VSDX","VSDY"]},
     'arcmfcwamre':'cmems_mod_arc_wav_my_3km_PT1H-i',
     'mfwam':'cmems_mod_glo_wav_anfc_0.083deg_PT3H-i',
     'waverys':'cmems_mod_glo_wav_my_0.2deg_PT3H-i',
@@ -126,7 +127,12 @@ for envinput in input_l: #Loops through the ocean and wind input
         dataset_id = env[envin]
         print(f"Loading dataset: {dataset_id}")
         try:
-            if isinstance(dataset_id, str) and dataset_id.endswith('.nc'): #local files, e.g. era5
+            if 'vars' in envin: #lload only custom variables of dataset
+                ds_env=read_cmems_custom_variables(dataset_id['id'],dataset_id['variables'])
+                ds_env = ds_env.chunk({"time": 1})
+                reader_env = Reader(ds_env,name=envin)
+                o.add_reader(reader_env) 
+            elif isinstance(dataset_id, str) and dataset_id.endswith('.nc'): #local files, e.g. era5
                 mapping_dict = {}
                 ds_env = xr.open_mfdataset(dataset_id)
                 if 'era5' in dataset_id:

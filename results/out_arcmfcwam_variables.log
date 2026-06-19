@@ -1,5 +1,0 @@
-19:31:38 DEBUG   opendrift.config:168: Adding 17 config items from __init__
-19:31:38 DEBUG   opendrift.config:178:   Overwriting config item readers:max_number_of_fails
-19:31:38 DEBUG   opendrift.config:168: Adding 14 config items from __init__
-19:31:38 INFO    opendrift:568: OpenDriftSimulation initialised (version 1.14.9)
-19:31:38 DEBUG   opendrift.config:168: Adding 15 config items from openberg
