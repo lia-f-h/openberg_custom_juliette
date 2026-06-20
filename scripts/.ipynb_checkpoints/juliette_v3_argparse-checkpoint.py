@@ -4,9 +4,9 @@
 #cd ~/work/tutorials/sources/OpenDrift/openberg_custom_juliette
 #run this file from the working directory in terminal using: 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '[["nextsimanfc","topaz6","topaz5"]]' \
-#   --argwind '["windglophynrt"]' \
-#   --argdrift '{"wind_drag": true, "sea_ice_drag": true}'
+#   --argoc '[["topaz6","topaz5"]]' \
+#   --argwind '[]' \
+#   --argdrift '{"wind_drag": false, "sea_ice_drag": false}'
 
 # python3 -m scripts.juliette_v3_argparse \
 #   --argoc '[["glophyanfc","arcmfcwam"],["glophyanfc","mfwam"],["glophyanfc","waverys"],["topaz5","arcmfcwam"],["topaz5","mfwam"],["topaz5","waverys"]]' \
