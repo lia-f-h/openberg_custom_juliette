@@ -4,14 +4,15 @@
 #cd ~/work/tutorials/sources/OpenDrift/openberg_custom_juliette
 #run this file from the working directory in terminal using: 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '[["topaz6","topaz5"]]' \
-#   --argwind '[]' \
-#   --argdrift '{"wind_drag": false, "sea_ice_drag": false}'
+#   --argoc '[["nextsimanfc","glophyanfc","waverys"],["nextsimanfc","glophyanfc","mfwam"],["nextsimanfc","topaz5","waverys"],["nextsimanfc","topaz5","mfwam"],["nextsimanfc","glophyanfc","arcmfcwam"],["nextsimanfc","topaz5","arcmfcwam"]]' \
+#   --argwind '["windglophynrt"]' \
+#   --argdrift '{"wind_drag": true, "sea_ice_drag": true, "wave_drag": true, "stokes_drift": true}'
+
 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '[["glophyanfc","arcmfcwam"],["glophyanfc","mfwam"],["glophyanfc","waverys"],["topaz5","arcmfcwam"],["topaz5","mfwam"],["topaz5","waverys"]]' \
-#   --argwind '["windglophynrt"]' \
-#   --argdrift '{"wind_drag": true, "sea_ice_drag": true, "wave_rad":true, "stokes_drift":true}'
+#   --argoc '["waverys"]' \
+#   --argwind '[]' \
+#   --argdrift '{"wind_drag": false, "sea_ice_drag": false,  "wave_drag": true, "stokes_drift": true}'
 
 
 
@@ -19,7 +20,8 @@
 
 from src.utils import *
 from src.utils2 import *
-from opendrift.models.openberg import OpenBerg
+# from opendrift.models.openberg import OpenBerg
+from src.openberg import OpenBerg
 from opendrift.readers.reader_netCDF_CF_generic import Reader    
 import gc
 import argparse
