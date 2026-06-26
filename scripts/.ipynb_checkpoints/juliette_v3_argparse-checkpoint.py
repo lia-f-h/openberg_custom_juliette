@@ -6,22 +6,19 @@
 # python3 -m scripts.juliette_v3_argparse \
 #   --argoc '[["nextsimanfc","glophyanfc","waverys"],["nextsimanfc","glophyanfc","mfwam"],["nextsimanfc","topaz5","waverys"],["nextsimanfc","topaz5","mfwam"],["nextsimanfc","glophyanfc","arcmfcwam"],["nextsimanfc","topaz5","arcmfcwam"]]' \
 #   --argwind '["windglophynrt"]' \
-#   --argdrift '{"wind_drag": true, "sea_ice_drag": true, "wave_drag": true, "stokes_drift": true}'
+#   --argdrift '{"wind_drag": true, "sea_ice_drag": true, "wave_rad": true, "stokes_drift": true}'
 
 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '["waverys"]' \
-#   --argwind '[]' \
-#   --argdrift '{"wind_drag": false, "sea_ice_drag": false,  "wave_drag": true, "stokes_drift": true}'
-
-
-
+#   --argoc '[["nextsimanfc","glophyanfc","mfwam"],["nextsimanfc","glophyanfc","arcmfcwam"],["nextsimanfc","topaz5","waverys"],["nextsimanfc","topaz5","mfwam"],["nextsimanfc","topaz5","arcmfcwam"],["nextsimanfc","topaz6","topaz5","waverys"],["nextsimanfc","topaz6","topaz5","mfwam"],["nextsimanfc","topaz6","topaz5","arcmfcwam"]]' \
+#   --argwind '["windglophynrt"]' \
+#   --argdrift '{"wind_drag": true, "sea_ice_drag": true,  "wave_rad": true, "stokes_drift": true}' \
+#   --argname 'wavedir' \
+#   --argopenberg 'wavedir'
 
 
 from src.utils import *
 from src.utils2 import *
-# from opendrift.models.openberg import OpenBerg
-from src.openberg import OpenBerg
 from opendrift.readers.reader_netCDF_CF_generic import Reader    
 import gc
 import argparse
@@ -37,6 +34,9 @@ parser.add_argument("--argoc", type=json.loads, required=True, help='JSON list o
 parser.add_argument("--argwind", type=json.loads, default='["windglophynrt"]', help='JSON list, e.g. \'["windglophynrt"]\'')
 parser.add_argument("--argdrift", type=json.loads, default={"wind_drag": True, "sea_ice_drag": True, "wave_rad": False, "stokes_drift": False}, 
                     help='JSON dict, e.g. \'{"wind_drag": true}\'')
+parser.add_argument("--argname", type=str, help='str to be added to filename (optional)', default='')
+parser.add_argument("--argopenberg", type=str, help='Which openberg.py to use', default='Original')
+
 
 
 args = parser.parse_args()
@@ -44,6 +44,14 @@ args = parser.parse_args()
 # print("argwind:", args.argwind)
 # print("argdrift:", json.loads(args.list3))
 argdrift = args.argdrift
+argname = args.argname
+
+#openberg
+openbergvers = args.argopenberg
+if openbergvers=='Original': from opendrift.models.openberg import OpenBerg
+elif openbergvers=='wavedir': from src.openberg import OpenBerg
+elif openbergvers=='waveshovon': from src.openberg_waveshovon import OpenBerg
+print('Openberg.py used from ',args.argopenberg)
 
 
 # --- Input data ---
@@ -152,7 +160,7 @@ iceberg['width'][idx0] = 85 #correct for meassured width
 for envinput in input_l: #Loops through the ocean and wind input
     print(f"\nRunning with inputs: {envinput}")
     #---Initialisation---
-    o=OpenBerg(loglevel=10,logfile='./results/out_%s.log'%('_'.join(envinput)))
+    o=OpenBerg(loglevel=10,logfile='./results/out_%s%s.log'%('_'.join(envinput),'_'+argname if argname!='' else ''))
     #---Model configuration---
     o.set_config('drift:max_age_seconds', ib_duration*3600*24) #Terminates simulations  ib_duration seconds after their individual initialisation
     o.set_config('drift:vertical_profile',argdrift['vertical_profile'] if 'vertical_profile' in argdrift else False)
@@ -208,9 +216,9 @@ for envinput in input_l: #Loops through the ocean and wind input
             **iceberg)
     #---Run---
     oi = o.run(duration=timedelta(days=int(idx.size*ib_duration)), #duration from first initialisation to last termination not equal to ib age!
-               outfile='./results/juliette_%s.nc'%('_'.join(envinput)))
+               outfile='./results/juliette_%s%s.nc'%('_'.join(envinput),'_'+argname if argname!='' else ''))
     #---Plot map---
-    o.plot(fast=True,filename='./results/juliette_map_%s.png'%('_'.join(envinput)))
+    o.plot(fast=True,filename='./results/juliette_map_%s%s.png'%('_'.join(envinput),'_'+argname if argname!='' else ''))
     #collect left over data
     for _ in range(2):
         gc.collect()
