@@ -10,7 +10,7 @@
 
 
 # python3 -m scripts.juliette_v3_argparse \
-#   --argoc '[["nextsimanfc","glophyanfc","mfwam"],["nextsimanfc","glophyanfc","arcmfcwam"],["nextsimanfc","topaz5","waverys"],["nextsimanfc","topaz5","mfwam"],["nextsimanfc","topaz5","arcmfcwam"],["nextsimanfc","topaz6","topaz5","waverys"],["nextsimanfc","topaz6","topaz5","mfwam"],["nextsimanfc","topaz6","topaz5","arcmfcwam"]]' \
+#   --argoc '[["nextsimanfc","topaz6","topaz5","mfwam"],["nextsimanfc","topaz6","topaz5","waverys"]]' \
 #   --argwind '["windglophynrt"]' \
 #   --argdrift '{"wind_drag": true, "sea_ice_drag": true,  "wave_rad": true, "stokes_drift": true}' \
 #   --argname 'wavedir' \
